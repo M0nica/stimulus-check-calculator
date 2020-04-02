@@ -10,6 +10,33 @@ body {
   box-sizing: border-box;
 }
 
+label {
+  display: block;
+  padding-top: 1em;
+}
+
+.calculateButton {
+  color: #fff;
+  background-color: #2152ad;
+}
+.calculateButton:hover {
+  background-color: #4989ff;
+}
+
+button {
+  background-color: #e9eafd;
+  border-radius: 50px;
+  padding: 1em;
+  border: none;
+  margin: 0.75em;
+  min-width: 100px;
+}
+
+button:hover,
+.selectedButton {
+  background-color: #c6c8f7;
+}
+
 main {
   padding: 5rem 0;
   flex: 1;
@@ -39,8 +66,12 @@ footer a {
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+  color: #2152ad;
+  text-decoration: #2152ad underline;
+}
+
+a:hover {
+  color: #4989ff;
 }
 
 code {

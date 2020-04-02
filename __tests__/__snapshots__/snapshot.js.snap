@@ -5,84 +5,125 @@ exports[`renders homepage unchanged 1`] = `
   className="container"
 >
   <main>
-    <h1
-      className="title"
-    >
-      Welcome to
-      <a
-        href="https://nextjs.org"
-      >
-        Next.js!
-      </a>
+    <h1>
+      Stimulus Check Calculator
     </h1>
-    <p
-      className="description"
+    <form
+      onSubmit={[Function]}
     >
-      Get started by editing
-      <code>
-        pages/index.js
-      </code>
-    </p>
-    <div
-      className="grid"
-    >
-      <a
-        className="card"
-        href="https://nextjs.org/docs"
+      <p>
+        This is an educational form based on figures from the
+         
+        <a
+          href="https://www.washingtonpost.com/context/coronavirus-aid-relief-and-economic-security-act-of-2020/28f5de5f-6eed-46c0-b629-798e219497c5/"
+        >
+          CARES Act
+        </a>
+         
+        📝 .
+         
+      </p>
+      <p>
+        None of the information you input will be stored.
+      </p>
+      <label
+        htmlFor="tax-year"
       >
-        <h3>
-          Documentation →
-        </h3>
-        <p>
-          Find in-depth information about Next.js features and API.
-        </p>
-      </a>
-      <a
-        className="card"
-        href="https://nextjs.org/learn"
+        Have you filed your 2019 taxes yet?
+      </label>
+      <button
+        className="selectedButton"
+        onClick={[Function]}
       >
-        <h3>
-          Learn →
-        </h3>
-        <p>
-          Learn about Next.js in an interactive course with quizzes!
-        </p>
-      </a>
-      <a
-        className="card"
-        href="https://github.com/zeit/next.js/tree/master/examples"
+        Yes
+      </button>
+      <button
+        className=""
+        onClick={[Function]}
       >
-        <h3>
-          Examples →
-        </h3>
-        <p>
-          Discover and deploy boilerplate example Next.js projects.
-        </p>
-      </a>
-      <a
-        className="card"
-        href="https://zeit.co/import/nextjs"
+        No
+      </button>
+      <p>
+        What was your filing status in your 
+        2019
+         taxes? 
+      </p>
+      <button
+        className="selectedButton"
+        name="tax-year"
+        onClick={[Function]}
       >
-        <h3>
-          Deploy →
-        </h3>
-        <p>
-          Instantly deploy your Next.js site to a public URL with ZEIT Now.
-        </p>
-      </a>
-    </div>
+         
+        Single
+      </button>
+      <button
+        className=""
+        name="tax-year"
+        onClick={[Function]}
+      >
+         
+        Married
+      </button>
+      <button
+        className=""
+        name="tax-year"
+        onClick={[Function]}
+      >
+         
+        Head of Household
+      </button>
+      <br />
+      <label
+        htmlFor="adjusted-income"
+      >
+        What was your adjusted gross income in 
+        2019
+        ?
+      </label>
+      $
+       
+      <input
+        min={0}
+        name="adjusted-income"
+        onChange={[Function]}
+        type="number"
+        value="75000"
+      />
+      <br />
+      <label
+        htmlFor="children"
+      >
+        How many children under age 17 did you claim as dependents in
+         
+        2019
+        ?
+      </label>
+      <input
+        min={0}
+        name="label"
+        onChange={[Function]}
+        type="number"
+        value={0}
+      />
+      <br />
+      <button
+        className="calculateButton"
+        type="submit"
+      >
+        Calculate
+      </button>
+      <p>
+         
+      </p>
+    </form>
   </main>
   <footer>
     <a
-      href="https://zeit.co"
+      href="https://www.github.com/m0nica"
       rel="noopener noreferrer"
       target="_blank"
     >
-      Powered by
-      <img
-        alt="ZEIT Logo"
-        src="/zeit.svg"
-      />
+      Created By: Monica Powell
     </a>
   </footer>
 </div>
