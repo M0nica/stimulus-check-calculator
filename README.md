@@ -1,21 +1,3 @@
-# Next.js + Jest
-
-This example shows how to configure Jest to work with Next.js.
-
-This includes Next.js' built-in support for Global CSS, CSS Modules, and TypeScript!
-
-## How to Use
-
-Quickly get started using [Create Next App](https://github.com/zeit/next.js/tree/canary/packages/create-next-app#readme)!
-
-In your terminal, run the following command:
-
-```bash
-npx create-next-app --example with-jest
-```
-
-## Run Jest Tests
-
-```bash
-npm test
-```
+# Stimulus Check Calculator
+An calculator built to calculate estimated stimulus check under the 2020 CARES Act in the United States
+<img src="https://raw.githubusercontent.com/M0nica/stimulus-check-calculator/master/public/Screen%20Shot%202020-04-02%20at%206.14.53%20PM.png">
