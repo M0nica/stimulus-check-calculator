@@ -142,7 +142,7 @@ function Home() {
         <p>
           Created By:{" "}
           <a
-            href="https://www.github.com/m0nica"
+            href="https://github.com/M0nica/stimulus-check-calculator"
             target="_blank"
             rel="noopener noreferrer"
           >
