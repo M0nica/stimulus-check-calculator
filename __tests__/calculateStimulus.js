@@ -1,7 +1,7 @@
 import {
   getStimulusAmount,
-  calculateStimulusAmount
-} from "../calculateStimulus";
+  calculateStimulusAmount,
+} from "../utils/calculateStimulus";
 
 describe("given income is less than or equal to incomeLimit", () => {
   it("when there are no children return baseStimulusAmount", () => {

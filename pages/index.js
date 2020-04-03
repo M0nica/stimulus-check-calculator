@@ -1,8 +1,8 @@
 import Header from "../partials/seo-meta";
 import React, { useReducer } from "react";
 import styles from "./index.module.css";
-import { filingStatuses } from "./utils/constants";
-import { getStimulusAmount } from "./utils/calculateStimulus";
+import { filingStatuses } from "../utils/constants";
+import { getStimulusAmount } from "../utils/calculateStimulus";
 
 function reducer(state, action) {
   const { type, payload } = action;
