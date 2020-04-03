@@ -21,14 +21,8 @@ const Meta = (props) => (
     <meta name="twitter:description" content={description} />
     <link rel="icon" type="image/png" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/favicon.ico" />
-    <meta
-      property="og:image"
-      content=`{url}calculator-screenshot.png`
-    />
-    <meta
-      name="twitter:image"
-      content=`{url}calculator-screenshot.png`
-    />
+    <meta property="og:image" content={`${url}calculator-screenshot.png`} />
+    <meta name="twitter:image" content={`${url}calculator-screenshot.png`} />
     <link rel="canonical" href={url} />
     <script type="text/javascript" src=""></script>
   </Head>
