@@ -1,48 +1,34 @@
 import Head from "next/head";
-import React, { useState } from "react";
+import React, { useReducer } from "react";
 import styles from "./index.module.css";
+import { filingStatuses } from "./utils/constants";
+import { getStimulusAmount } from "./utils/calculateStimulus";
 
-const SINGLE = "Single";
-const HEADOFHOUSE = "Head of Household";
-const MARRIED = "Married";
-
-function getStimulusAmount(incomeLimit, baseStimulusAmount, income, children) {
-  const ineligibleIncome = parseInt(income) - incomeLimit;
-  const amountPerKid = 500 * children;
-  if (ineligibleIncome <= 0) {
-    return baseStimulusAmount + amountPerKid;
-  } else {
-    const calculatedAmount =
-      baseStimulusAmount - (ineligibleIncome / 100) * 5 + amountPerKid;
-    return calculatedAmount > 0 ? calculatedAmount : 0;
-  }
-}
-
-function calculateStimulus(income, filingStatus, children) {
-  switch (filingStatus) {
-    case HEADOFHOUSE:
-      return getStimulusAmount(112500, 1200, income, children);
-    case SINGLE:
-      return getStimulusAmount(75000, 1200, income, children);
-      break;
-    case MARRIED:
-      return getStimulusAmount(150000, 2400, income, children);
-    default:
-      return getStimulusAmount(75000, 1200, income, children);
-  }
+function reducer(state, action) {
+  const { type, payload } = action;
+  return { ...state, [type]: payload };
 }
 
 function Home() {
-  const [taxYear, setTaxYear] = useState(2019);
-  const [filingStatus, setFilingStatus] = useState("Single");
-  const [income, setIncome] = useState("75000");
-  const [children, setChildren] = useState(0);
-  const [stimulusAmount, setStimulusAmount] = useState(-1);
+  const { SINGLE, HEADOFHOUSE, MARRIED } = filingStatuses;
+  const initialState = {
+    taxYear: 2019,
+    filingStatus: SINGLE,
+    income: "75000",
+    children: 0,
+    stimulusAmount: -1
+  };
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   function handleSubmit(e) {
     e.preventDefault();
-    setStimulusAmount(calculateStimulus(income, filingStatus, children));
+    dispatch({
+      type: "stimulusAmount",
+      payload: getStimulusAmount(income, filingStatus, children)
+    });
   }
+
+  const { taxYear, filingStatus, income, children, stimulusAmount } = state;
 
   return (
     <div className={styles.container}>
@@ -60,7 +46,7 @@ function Home() {
           <label htmlFor="tax-year">Have you filed your 2019 taxes yet?</label>
           {[2019, 2018].map(year => (
             <button
-              onClick={() => setTaxYear(year)}
+              onClick={() => dispatch({ type: "taxYear", payload: year })}
               className={year == taxYear ? "selectedButton" : ""}
               key={year}
               name="tax-year"
@@ -73,7 +59,9 @@ function Home() {
           </label>
           {[SINGLE, MARRIED, HEADOFHOUSE].map(status => (
             <button
-              onClick={() => setFilingStatus(status)}
+              onClick={() =>
+                dispatch({ type: "filingStatus", payload: status })
+              }
               className={status == filingStatus ? "selectedButton" : ""}
               name="filing-status"
               key={status}
@@ -92,9 +80,10 @@ function Home() {
             inputMode="numeric"
             pattern="[0-9]*"
             value={income}
-            onChange={e => setIncome(e.target.value)}
+            onChange={e =>
+              dispatch({ type: "income", payload: e.target.value })
+            }
             min={0}
-            name="adjusted-income"
           />
           <br />
           <label htmlFor="children">
@@ -106,7 +95,9 @@ function Home() {
             inputMode="numeric"
             pattern="[0-9]*"
             value={children}
-            onChange={e => setChildren(e.target.value)}
+            onChange={e =>
+              dispatch({ type: "children", payload: e.target.value })
+            }
             min={0}
             name="label"
           />
