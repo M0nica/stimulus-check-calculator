@@ -1,6 +1,6 @@
 import { filingStatuses } from "./constants";
 
-function calculateStimulusAmount(
+export function calculateStimulusAmount(
   incomeLimit,
   baseStimulusAmount,
   income,

@@ -6,26 +6,14 @@ exports[`renders homepage unchanged 1`] = `
 >
   <main>
     <h1>
-      Stimulus Check Calculator
+      Stimulus Check Calculator 💸
     </h1>
+    <p>
+      Use this calculator to determine the estimated amount of your stimulus check under the CARES Act.
+    </p>
     <form
       onSubmit={[Function]}
     >
-      <p>
-        This is an educational form based on figures from the
-         
-        <a
-          href="https://www.washingtonpost.com/context/coronavirus-aid-relief-and-economic-security-act-of-2020/28f5de5f-6eed-46c0-b629-798e219497c5/"
-        >
-          CARES Act
-        </a>
-         
-        📝 .
-         
-      </p>
-      <p>
-        None of the information you input will be stored.
-      </p>
       <label
         htmlFor="tax-year"
       >
@@ -33,24 +21,29 @@ exports[`renders homepage unchanged 1`] = `
       </label>
       <button
         className="selectedButton"
+        name="tax-year"
         onClick={[Function]}
       >
         Yes
       </button>
       <button
         className=""
+        name="tax-year"
         onClick={[Function]}
       >
         No
       </button>
-      <p>
+      <label
+        htmlFor="filing-status"
+      >
         What was your filing status in your 
         2019
-         taxes? 
-      </p>
+         taxes?
+         
+      </label>
       <button
         className="selectedButton"
-        name="tax-year"
+        name="filing-status"
         onClick={[Function]}
       >
          
@@ -58,7 +51,7 @@ exports[`renders homepage unchanged 1`] = `
       </button>
       <button
         className=""
-        name="tax-year"
+        name="filing-status"
         onClick={[Function]}
       >
          
@@ -66,7 +59,7 @@ exports[`renders homepage unchanged 1`] = `
       </button>
       <button
         className=""
-        name="tax-year"
+        name="filing-status"
         onClick={[Function]}
       >
          
@@ -83,9 +76,10 @@ exports[`renders homepage unchanged 1`] = `
       $
        
       <input
+        inputMode="numeric"
         min={0}
-        name="adjusted-income"
         onChange={[Function]}
+        pattern="[0-9]*"
         type="number"
         value="75000"
       />
@@ -99,9 +93,11 @@ exports[`renders homepage unchanged 1`] = `
         ?
       </label>
       <input
+        inputMode="numeric"
         min={0}
         name="label"
         onChange={[Function]}
+        pattern="[0-9]*"
         type="number"
         value={0}
       />
@@ -115,16 +111,42 @@ exports[`renders homepage unchanged 1`] = `
       <p>
          
       </p>
+      <br />
     </form>
   </main>
   <footer>
-    <a
-      href="https://www.github.com/m0nica"
-      rel="noopener noreferrer"
-      target="_blank"
-    >
-      Created By: Monica Powell
-    </a>
+    <p>
+      This form was created for educational purposes and based off of figures from the
+       
+      <a
+        href="https://www.washingtonpost.com/context/coronavirus-aid-relief-and-economic-security-act-of-2020/28f5de5f-6eed-46c0-b629-798e219497c5/"
+      >
+        CARES Act
+      </a>
+       
+      and this
+       
+      <a
+        href="https://www.washingtonpost.com/graphics/business/coronavirus-stimulus-check-calculator/"
+      >
+        Washington Post Article
+      </a>
+      .
+    </p>
+    <p>
+      None of the information you input will be stored.
+    </p>
+    <p>
+      Created By:
+       
+      <a
+        href="https://github.com/M0nica/stimulus-check-calculator"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Monica Powell
+      </a>
+    </p>
   </footer>
 </div>
 `;
