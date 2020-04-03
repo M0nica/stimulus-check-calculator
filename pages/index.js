@@ -1,4 +1,4 @@
-import Head from "next/head";
+import Header from "../partials/seo-meta";
 import React, { useReducer } from "react";
 import styles from "./index.module.css";
 import { filingStatuses } from "./utils/constants";
@@ -16,7 +16,7 @@ function Home() {
     filingStatus: SINGLE,
     income: "75000",
     children: 0,
-    stimulusAmount: -1
+    stimulusAmount: -1,
   };
   const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -24,7 +24,7 @@ function Home() {
     e.preventDefault();
     dispatch({
       type: "stimulusAmount",
-      payload: getStimulusAmount(income, filingStatus, children)
+      payload: getStimulusAmount(income, filingStatus, children),
     });
   }
 
@@ -32,10 +32,7 @@ function Home() {
 
   return (
     <div className={styles.container}>
-      <Head>
-        <title>Stimulus Check Calculator</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <Header />
       <main>
         <h1>Stimulus Check Calculator 💸</h1>
         <p>
@@ -44,7 +41,7 @@ function Home() {
         </p>
         <form onSubmit={handleSubmit}>
           <label htmlFor="tax-year">Have you filed your 2019 taxes yet?</label>
-          {[2019, 2018].map(year => (
+          {[2019, 2018].map((year) => (
             <button
               onClick={() => dispatch({ type: "taxYear", payload: year })}
               className={year == taxYear ? "selectedButton" : ""}
@@ -57,7 +54,7 @@ function Home() {
           <label htmlFor="filing-status">
             What was your filing status in your {taxYear} taxes?{" "}
           </label>
-          {[SINGLE, MARRIED, HEADOFHOUSE].map(status => (
+          {[SINGLE, MARRIED, HEADOFHOUSE].map((status) => (
             <button
               onClick={() =>
                 dispatch({ type: "filingStatus", payload: status })
@@ -80,7 +77,7 @@ function Home() {
             inputMode="numeric"
             pattern="[0-9]*"
             value={income}
-            onChange={e =>
+            onChange={(e) =>
               dispatch({ type: "income", payload: e.target.value })
             }
             min={0}
@@ -95,7 +92,7 @@ function Home() {
             inputMode="numeric"
             pattern="[0-9]*"
             value={children}
-            onChange={e =>
+            onChange={(e) =>
               dispatch({ type: "children", payload: e.target.value })
             }
             min={0}
@@ -109,7 +106,7 @@ function Home() {
             {" "}
             {stimulusAmount >= 0 &&
               (stimulusAmount > 0
-                ? `Your stimulus amount is expected to be $${stimulusAmount}.`
+                ? `Your stimulus amount is likely to be $${stimulusAmount}.`
                 : `You are not expected to receive a stimulus.`)}
           </p>
           <br />
