@@ -6,17 +6,31 @@
     "build": "next build",
     "start": "next start",
     "test": "jest --watch",
-    "test:ci": "jest --ci"
+    "test:ci": "jest --ci",
+    "lint-eslint": "eslint . --ext js,jsx --max-warnings=0",
+    "lint": "yarn prettier-check && yarn lint-eslint",
+    "lint-fix": "yarn prettier-fix && yarn lint-eslint . --ext js,jsx --fix --max-warnings=0",
+    "prettier-check": "prettier --check \"**/*.{jsx,js,css}\"",
+    "prettier-fix": "prettier --write \"**/*.{jsx,js,css}\""
   },
   "dependencies": {
+    "@testing-library/jest-dom": "^5.1.0",
     "next": "latest",
+    "prop-types": "^15.7.2",
     "react": "16.12.0",
     "react-dom": "16.12.0"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^5.1.0",
     "@testing-library/react": "^9.4.0",
     "babel-jest": "^25.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^2.5.1",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^25.1.0",
     "react-test-renderer": "^16.12.0"
