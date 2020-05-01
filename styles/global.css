@@ -26,8 +26,8 @@ input {
   border: medium none;
 }
 
-input[type="number"],
-input[type="string"] {
+input[type='number'],
+input[type='string'] {
   display: inline-block;
   padding: 8px 10px;
   background: #e9eafd none repeat scroll 0% 0%;

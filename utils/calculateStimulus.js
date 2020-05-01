@@ -1,20 +1,19 @@
-import { filingStatuses } from "./constants";
+import filingStatuses from './constants';
 
 export function calculateStimulusAmount(
   incomeLimit,
   baseStimulusAmount,
   income,
-  children
+  children,
 ) {
-  const ineligibleIncome = parseInt(income) - incomeLimit;
+  const ineligibleIncome = parseInt(income, 10) - incomeLimit;
   const amountPerKid = 500 * children;
   if (ineligibleIncome <= 0) {
     return baseStimulusAmount + amountPerKid;
-  } else {
-    const calculatedAmount =
-      baseStimulusAmount - (ineligibleIncome / 100) * 5 + amountPerKid;
-    return calculatedAmount > 0 ? calculatedAmount : 0;
   }
+  const calculatedAmount =
+    baseStimulusAmount - (ineligibleIncome / 100) * 5 + amountPerKid;
+  return calculatedAmount > 0 ? calculatedAmount : 0;
 }
 
 export function getStimulusAmount(income, filingStatus, children) {
@@ -24,7 +23,6 @@ export function getStimulusAmount(income, filingStatus, children) {
       return calculateStimulusAmount(112500, 1200, income, children);
     case SINGLE:
       return calculateStimulusAmount(75000, 1200, income, children);
-      break;
     case MARRIED:
       return calculateStimulusAmount(150000, 2400, income, children);
     default:

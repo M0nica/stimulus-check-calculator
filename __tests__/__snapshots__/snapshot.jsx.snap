@@ -6,7 +6,14 @@ exports[`renders homepage unchanged 1`] = `
 >
   <main>
     <h1>
-      Stimulus Check Calculator 💸
+      Stimulus Check Calculator
+       
+      <span
+        aria-label="money with wings emoji"
+        role="img"
+      >
+        💸
+      </span>
     </h1>
     <p>
       Use this calculator to determine the estimated amount of your stimulus check under the CARES Act.
@@ -23,6 +30,7 @@ exports[`renders homepage unchanged 1`] = `
         className="selectedButton"
         name="tax-year"
         onClick={[Function]}
+        type="button"
       >
         Yes
       </button>
@@ -30,6 +38,7 @@ exports[`renders homepage unchanged 1`] = `
         className=""
         name="tax-year"
         onClick={[Function]}
+        type="button"
       >
         No
       </button>
@@ -45,6 +54,7 @@ exports[`renders homepage unchanged 1`] = `
         className="selectedButton"
         name="filing-status"
         onClick={[Function]}
+        type="button"
       >
          
         Single
@@ -53,6 +63,7 @@ exports[`renders homepage unchanged 1`] = `
         className=""
         name="filing-status"
         onClick={[Function]}
+        type="button"
       >
          
         Married
@@ -61,6 +72,7 @@ exports[`renders homepage unchanged 1`] = `
         className=""
         name="filing-status"
         onClick={[Function]}
+        type="button"
       >
          
         Head of Household
@@ -80,15 +92,14 @@ exports[`renders homepage unchanged 1`] = `
         min={0}
         onChange={[Function]}
         pattern="[0-9]*"
-        type="number"
+        type="string"
         value="75000"
       />
       <br />
       <label
         htmlFor="children"
       >
-        How many children under age 17 did you claim as dependents in
-         
+        How many children under age 17 did you claim as dependents in 
         2019
         ?
       </label>
@@ -113,40 +124,40 @@ exports[`renders homepage unchanged 1`] = `
       </p>
       <br />
     </form>
+    <footer>
+      <p>
+        This form was created for educational purposes and based off of figures from the
+         
+        <a
+          href="https://www.washingtonpost.com/context/coronavirus-aid-relief-and-economic-security-act-of-2020/28f5de5f-6eed-46c0-b629-798e219497c5/"
+        >
+          CARES Act
+        </a>
+         
+        and this
+         
+        <a
+          href="https://www.washingtonpost.com/graphics/business/coronavirus-stimulus-check-calculator/"
+        >
+          Washington Post Article
+        </a>
+        .
+      </p>
+      <p>
+        None of the information you input will be stored.
+      </p>
+      <p>
+        Created By:
+         
+        <a
+          href="https://github.com/M0nica/stimulus-check-calculator"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Monica Powell
+        </a>
+      </p>
+    </footer>
   </main>
-  <footer>
-    <p>
-      This form was created for educational purposes and based off of figures from the
-       
-      <a
-        href="https://www.washingtonpost.com/context/coronavirus-aid-relief-and-economic-security-act-of-2020/28f5de5f-6eed-46c0-b629-798e219497c5/"
-      >
-        CARES Act
-      </a>
-       
-      and this
-       
-      <a
-        href="https://www.washingtonpost.com/graphics/business/coronavirus-stimulus-check-calculator/"
-      >
-        Washington Post Article
-      </a>
-      .
-    </p>
-    <p>
-      None of the information you input will be stored.
-    </p>
-    <p>
-      Created By:
-       
-      <a
-        href="https://github.com/M0nica/stimulus-check-calculator"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        Monica Powell
-      </a>
-    </p>
-  </footer>
 </div>
 `;
